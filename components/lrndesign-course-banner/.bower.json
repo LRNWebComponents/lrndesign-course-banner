@@ -1,0 +1,28 @@
+{
+  "name": "lrndesign-course-banner",
+  "description": "A LRN element",
+  "main": "lrndesign-course-banner.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.10.1",
+    "materializecss-styles": "LRNWebComponents/materializecss-styles#^1.0.0",
+    "iron-image": "PolymerElements/iron-image#^2.1.2",
+    "lrndesign-avatar": "LRNWebcomponents/lrndesign-avatar#^1.1.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/LRNWebComponents/lrndesign-course-banner",
+  "_release": "802f0105bf",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "802f0105bfd3d919324cb5bc7e55621ceb60a660"
+  },
+  "_source": "https://github.com/LRNWebComponents/lrndesign-course-banner.git",
+  "_target": "master",
+  "_originalSource": "LRNWebComponents/lrndesign-course-banner",
+  "_direct": true
+}
