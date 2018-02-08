@@ -1,7 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../materializecss-styles/materializecss-styles.html">
-<link rel="import" href="../hax-body-behaviors/hax-body-behaviors.html">
-<link rel="import" href="../schema-behaviors/schema-behaviors.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../lrndesign-avatar/lrndesign-avatar.html">
+
 <!--
 `lrndesign-course-banner`
 A LRN element
@@ -16,76 +17,87 @@ A LRN element
 
 <dom-module id="lrndesign-course-banner">
   <template>
-    <style>
+    <style include="materializecss-styles-colors">
       :host {
         display: block;
       }
+      /**
+       * Dialog
+       */
+      .course-dialog-image {
+
+      }
+      .course-dialog-heading {
+        position: relative;
+        background-color: rgba(30, 30, 30, .8);
+        text-align: left;
+        margin: -5em 0 0 0;
+        padding: 1em;
+        color: #ffffff;
+        height: 3em;
+      }
+      .course-dialog-avatar {
+        float: left;
+        display: inline-flex;
+        padding: 0 1em 0 0;
+      }
+      .course-dialog-name {
+        font-size: 1.5em;
+        line-height: 1em;
+        min-width: 6em;
+      }
+      .course-dialog-title {
+        font-size: 1em;
+        line-height: 1em;
+        display: none;
+      }
+      @media screen and (min-width: 420px) {
+        .course-dialog-name {
+          font-size: 2em;
+        }
+        .course-dialog-title {
+          display: block;
+        }
+      }
     </style>
-    <h2>[[title]]</h2>
+    <iron-image class="course-dialog-image" style="width:100%; height:200px; background-color: lightgray;" sizing="cover" preload fade src$="[[image]]"></iron-image>
+    <div class="course-dialog-heading">
+      <lrndesign-avatar class="course-dialog-avatar" label="[[name]]" jdenticon color="[[color]]">
+      </lrndesign-avatar>
+      <div class="course-dialog-name">[[name]]</div>
+      <div class="course-dialog-title">[[title]]</div>
+    </div>
   </template>
 
   <script>
     Polymer({
 
       is: 'lrndesign-course-banner',
-      behaviors: [HAXBehaviors.PropertiesBehaviors, MaterializeCSSBehaviors.ColorBehaviors, SchemaBehaviors.Schema],
       properties: {
         /**
-         * Title
+         * Text representation of the color like red or blue
+         */
+        color: {
+          type: String,
+        },
+        /**
+         * Banner image
+         */
+        image: {
+          type: String,
+        },
+        /**
+         * Name of the course
+         */
+        name: {
+          type: String,
+        },
+        /**
+         * Title of the course, longer description.
          */
         title: {
           type: String,
         },
-      },
-      /**
-       * Attached to the DOM, now fire.
-       */
-      attached: function() {
-        // Establish hax property binding
-        let props = {
-          'canScale': true,
-          'canPosition': true,
-          'canEditSource': false,
-          'gizmo': {
-            'title': 'Sample gizmo',
-            'description': 'The user will be able to see this for selection in a UI.',
-            'icon': 'av:play-circle-filled',
-            'color': 'grey',
-            'groups': ['Video', 'Media'],
-            'handles': [
-              {
-                'type': 'video',
-                'url': 'source'
-              }
-            ],
-            'meta': {
-              'author': 'Your organization on github'
-            }
-          },
-          'settings': {
-            'quick': [
-              {
-                'property': 'title',
-                'title': 'Title',
-                'description': 'The title of the element',
-                'inputMethod': 'textfield',
-                'icon': 'editor:title',
-              },
-            ],
-            'configure': [
-              {
-                'property': 'title',
-                'title': 'Title',
-                'description': 'The title of the element',
-                'inputMethod': 'textfield',
-                'icon': 'editor:title',
-              },
-            ],
-            'advanced': [
-            ]
-          }
-        };
-        this.setHaxProperties(props);
       },
     });
   </script>
